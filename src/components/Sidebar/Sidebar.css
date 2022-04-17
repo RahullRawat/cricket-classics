@@ -23,3 +23,7 @@
 	font-size: 2rem;
 	font-weight: 500;
 }
+
+.sidebar-container > ul > li > .fa-solid {
+	color: var(--cta-color);
+}
