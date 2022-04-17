@@ -1,0 +1,52 @@
+.navbar-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	height: 8rem;
+	background-color: var(--nav-bg-color);
+	padding: 0 4rem;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+}
+
+.nav-brand-title > a {
+	color: var(--white-color);
+	font-size: 2rem;
+	font-weight: 400;
+	letter-spacing: 0.1rem;
+}
+
+.nav-brand-title > a > span {
+	font-size: 2.1rem;
+	color: var(--cta-color);
+	font-weight: 900;
+	letter-spacing: 0.1rem;
+}
+
+.search-bar-container {
+	display: flex;
+	align-items: center;
+	width: 30%;
+	height: 3.5rem;
+	border-radius: 0.5rem;
+	border: 1px solid var(--search-border-color);
+}
+
+.search-bar-container > input {
+	width: 100%;
+	height: 100%;
+	margin-top: 1rem;
+	font-size: 1.6rem;
+	border-radius: 0 0.5rem 0.5rem 0;
+	color: var(--white-color);
+	background-color: var(--input-bg-color);
+}
+
+.search-bar-container > .fa-magnifying-glass {
+	background-color: var(--input-bg-color);
+	padding: 1rem;
+	height: 100%;
+	border-radius: 0.5rem 0 0 0.5rem;
+}
