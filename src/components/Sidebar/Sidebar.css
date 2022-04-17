@@ -1,0 +1,25 @@
+.sidebar-container {
+	background-color: var(--nav-bg-color);
+	width: 17vw;
+	height: calc(100vh - 8rem);
+	position: fixed;
+	top: 8rem;
+}
+
+.sidebar-container > ul > li {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	padding: 1.5rem 4rem;
+}
+
+.sidebar-container > ul > li:hover {
+	background-color: var(--bg-color);
+}
+
+.sidebar-container > ul > li > span {
+	margin-left: 2rem;
+	color: var(--white-color);
+	font-size: 2rem;
+	font-weight: 500;
+}
