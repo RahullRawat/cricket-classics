@@ -2,10 +2,11 @@
 	background-color: var(--nav-bg-color);
 	cursor: pointer;
 	border-radius: 1rem;
+	height: 30rem;
 }
 
 .thumbnail-container {
-	height: 30rem;
+	height: 22rem;
 }
 
 .thumbnail-container > img {
@@ -16,8 +17,8 @@
 
 .video-info-container {
 	display: flex;
-	height: 10rem;
-	padding: 2rem 1rem;
+	height: 8rem;
+	padding: 1.5rem 1rem;
 }
 
 .video-info-container > img {

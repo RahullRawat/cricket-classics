@@ -1,6 +1,6 @@
 .sidebar-container {
 	background-color: var(--nav-bg-color);
-	width: 17vw;
+	width: 17%;
 	height: calc(100vh - 8rem);
 	position: fixed;
 	top: 8rem;
