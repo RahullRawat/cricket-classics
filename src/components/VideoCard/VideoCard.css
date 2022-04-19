@@ -1,0 +1,58 @@
+.video-card-container {
+	background-color: var(--nav-bg-color);
+	cursor: pointer;
+	border-radius: 1rem;
+	height: 30rem;
+}
+
+.thumbnail-container {
+	height: 22rem;
+}
+
+.thumbnail-container > img {
+	width: 100%;
+	height: 100%;
+	border-radius: 1rem 1rem 0 0;
+}
+
+.video-info-container {
+	display: flex;
+	height: 8rem;
+	padding: 1.5rem 1rem;
+}
+
+.video-info-container > img {
+	width: 50px;
+	height: 50px;
+}
+
+.video-info {
+	width: 100%;
+}
+
+.video-title {
+	font-size: 2.2rem;
+	font-weight: 500;
+	color: var(--white-color);
+	font-family: "Roboto", sans-serif;
+}
+
+.video-details {
+	margin-top: 0.2rem;
+}
+
+.video-details > h6 {
+	font-size: 1.7rem;
+	color: var(--light-white-color);
+}
+
+.video-details > span {
+	font-size: 1.6rem;
+	color: var(--light-white-color);
+}
+
+.video-details {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
