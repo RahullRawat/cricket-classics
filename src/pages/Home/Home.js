@@ -1,29 +1,22 @@
-import React from "react";
-import { Sidebar } from "../../components";
-import { VideoCard } from "../../components";
+import React, { useState, useEffect } from "react";
+import { Sidebar, VideoCard } from "../../components";
+import { getVideos } from "../../services/getVideos";
 import "./Home.css";
 
 export const Home = () => {
+	const [videos, setVideos] = useState([]);
+
+	useEffect(() => {
+		getVideos(setVideos);
+	}, []);
+
 	return (
 		<div className="home-container">
 			<Sidebar />
 			<div className="video-listing-container">
-				<VideoCard />
-				<VideoCard />
-				<VideoCard />
-				<VideoCard />
-				<VideoCard />
-				<VideoCard />
-				<VideoCard />
-				<VideoCard />
-				<VideoCard />
-				<VideoCard />
-				<VideoCard />
-				<VideoCard />
-				<VideoCard />
-				<VideoCard />
-				<VideoCard />
-				<VideoCard />
+				{videos.map((video) => {
+					return <VideoCard {...video} />;
+				})}
 			</div>
 		</div>
 	);
