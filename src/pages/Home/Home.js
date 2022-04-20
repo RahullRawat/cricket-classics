@@ -15,7 +15,11 @@ export const Home = () => {
 			<Sidebar />
 			<div className="video-listing-container">
 				{videos.map((video) => {
-					return <VideoCard {...video} />;
+					return (
+						<div key={video._id}>
+							<VideoCard {...video} />
+						</div>
+					);
 				})}
 			</div>
 		</div>

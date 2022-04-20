@@ -16,6 +16,9 @@ const Navbar = () => {
 			<div className="profile-container">
 				<i class="fa-solid fa-user"></i>
 			</div>
+			<div className="mobile-menu">
+				<i class="fa-solid fa-bars"></i>
+			</div>
 		</div>
 	);
 };

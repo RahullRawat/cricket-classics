@@ -50,3 +50,21 @@
 	height: 100%;
 	border-radius: 0.5rem 0 0 0.5rem;
 }
+
+.mobile-menu {
+	display: none;
+}
+
+@media screen and (max-width: 768px) {
+	.mobile-menu {
+		display: block;
+	}
+
+	.profile-container {
+		display: none;
+	}
+
+	.search-bar-container {
+		display: none;
+	}
+}

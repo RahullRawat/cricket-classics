@@ -27,3 +27,21 @@
 .sidebar-container > ul > li > .fa-solid {
 	color: var(--cta-color);
 }
+
+@media screen and (max-width: 1024px) {
+	.sidebar-container > ul > li {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.sidebar-container > ul > li > span {
+		margin-left: 0;
+		font-size: 1.8rem;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.sidebar-container {
+		display: none;
+	}
+}

@@ -9,6 +9,7 @@ export const VideoCard = ({
 	time,
 	title,
 	videoViews,
+	_id,
 }) => {
 	return (
 		<div className="video-card-container">
