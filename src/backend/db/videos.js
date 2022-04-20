@@ -20,8 +20,7 @@ export const videos = [
 
 	{
 		_id: "Wo02dMEP_BbI",
-		title:
-			"Semi Final 1 | Trinbago Knight Riders vs Saint Lucia Kings | CPL 2021",
+		title: "Semi Final 1 | Trinbago Knight Riders vs Saint Lucia Kings",
 		channelName: "CPL T20",
 		thumbnail: "https://i3.ytimg.com/vi/FEk6TEJSll8/maxresdefault.jpg",
 		channelAvatar:
