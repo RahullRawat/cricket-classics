@@ -1,9 +1,9 @@
 .sidebar-container {
 	background-color: var(--nav-bg-color);
 	width: 17%;
-	height: calc(100vh - 8rem);
+	height: calc(100vh - 7rem);
 	position: fixed;
-	top: 8rem;
+	top: 7rem;
 }
 
 .sidebar-container > ul > li {
@@ -20,8 +20,8 @@
 .sidebar-container > ul > li > span {
 	margin-left: 2rem;
 	color: var(--white-color);
-	font-size: 2rem;
-	font-weight: 500;
+	font-size: 1.7rem;
+	font-weight: 600;
 }
 
 .sidebar-container > ul > li > .fa-solid {
