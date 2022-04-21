@@ -6,6 +6,7 @@
 .video-listing-container {
 	background-color: var(--bg-color);
 	width: 83%;
+	min-height: 100vh;
 	margin: 0 auto;
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
