@@ -13,5 +13,22 @@
 	padding: 4rem;
 	position: relative;
 	left: 8.5%;
-	top: 8rem;
+	top: 7rem;
+}
+
+@media screen and (max-width: 1024px) {
+	.video-listing-container {
+		grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+	}
+}
+@media screen and (max-width: 768px) {
+	.video-listing-container {
+		width: 100%;
+		left: 0;
+	}
+}
+@media screen and (max-width: 320px) {
+	.video-listing-container {
+		grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+	}
 }

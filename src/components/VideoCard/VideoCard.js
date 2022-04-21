@@ -1,19 +1,29 @@
 import React from "react";
 import "./VideoCard.css";
 
-export const VideoCard = () => {
+export const VideoCard = ({
+	thumbnail,
+	channelAvatar,
+	channelName,
+	likes,
+	time,
+	title,
+	videoViews,
+	_id,
+}) => {
 	return (
 		<div className="video-card-container">
 			<div className="thumbnail-container">
-				<img src="https://picsum.photos/400" alt="video-thumbnail" />
+				<img src={thumbnail} alt="video-thumbnail" />
+				<small className="timestamp">{time}</small>
 			</div>
 			<div className="video-info-container">
-				<img src="https://picsum.photos/10" className="avatar" alt="avatar" />
+				<img src={channelAvatar} className="avatar" alt="avatar" />
 				<div className="video-info">
-					<div className="video-title">BBL Highlights</div>
+					<div className="video-title">{title}</div>
 					<div className="video-details">
-						<h6>BBl Highlights</h6>
-						<span>1.6M Views</span>
+						<h6>{channelName}</h6>
+						<span>{videoViews}</span>
 					</div>
 				</div>
 			</div>
