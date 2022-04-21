@@ -13,7 +13,7 @@ export const Playlist = () => {
 						alt=""
 					/>
 					<div className="playlist-videos">
-						<span className="playlist-videos-count">100</span>
+						<span className="playlist-videos-count">1</span>
 						<i className="fa-solid fa-list-check playlist-icon"></i>
 					</div>
 				</div>
