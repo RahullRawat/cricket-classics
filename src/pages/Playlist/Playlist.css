@@ -1,0 +1,67 @@
+.playlist-display-container {
+	background-color: var(--bg-color);
+	width: 83%;
+	min-height: 100vh;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(35rem, 1fr));
+	gap: 3rem;
+	padding: 4rem;
+	position: relative;
+	left: 8.5%;
+	top: 7rem;
+}
+
+.playlist-thumbnail {
+	cursor: pointer;
+	width: 35rem;
+	height: fit-content;
+	position: relative;
+}
+
+.playlist-thumbnail > img {
+	width: 100%;
+	border-radius: 1rem;
+}
+
+.playlist-videos {
+	background-color: rgba(0, 0, 0, 0.7);
+	width: 100%;
+	height: 50%;
+	margin: auto;
+	position: absolute;
+	bottom: 0;
+	border-radius: 1rem;
+}
+
+.playlist-videos > .playlist-videos-count {
+	font-size: 2.2rem;
+	color: var(--white-color);
+	position: absolute;
+	top: 25%;
+	left: 50%;
+}
+
+.playlist-videos > .playlist-icon {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	font-size: 2.5rem;
+}
+
+@media screen and (max-width: 1024px) {
+	.playlist-display-container {
+		grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+	}
+}
+@media screen and (max-width: 768px) {
+	.playlist-display-container {
+		width: 100%;
+		left: 0;
+	}
+}
+@media screen and (max-width: 320px) {
+	.playlist-display-container {
+		grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+	}
+}
