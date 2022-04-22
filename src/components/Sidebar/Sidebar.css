@@ -6,35 +6,35 @@
 	top: 7rem;
 }
 
-.sidebar-container > ul > li {
+.sidebar-container > ul > a > li {
 	display: flex;
 	align-items: center;
 	cursor: pointer;
 	padding: 1.5rem 4rem;
 }
 
-.sidebar-container > ul > li:hover {
+.sidebar-container > ul > a > li:hover {
 	background-color: var(--bg-color);
 }
 
-.sidebar-container > ul > li > span {
+.sidebar-container > ul > a > li > span {
 	margin-left: 2rem;
 	color: var(--white-color);
 	font-size: 1.7rem;
 	font-weight: 600;
 }
 
-.sidebar-container > ul > li > .fa-solid {
+.sidebar-container > ul > a > li > .fa-solid {
 	color: var(--cta-color);
 }
 
 @media screen and (max-width: 1024px) {
-	.sidebar-container > ul > li {
+	.sidebar-container > ul > a > li {
 		flex-direction: column;
 		text-align: center;
 	}
 
-	.sidebar-container > ul > li > span {
+	.sidebar-container > ul > a > li > span {
 		margin-left: 0;
 		font-size: 1.8rem;
 	}
