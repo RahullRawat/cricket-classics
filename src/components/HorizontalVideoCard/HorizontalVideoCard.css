@@ -1,0 +1,55 @@
+.horizontal-video-card {
+	display: flex;
+	width: 45vw;
+	height: 9rem;
+	margin-bottom: 2rem;
+	cursor: pointer;
+}
+
+.horizontal-video-card > .thumbnail-container {
+	height: 100%;
+	width: 22rem;
+}
+
+.horizontal-video-card > .thumbnail-container > img {
+	width: 100%;
+}
+
+.horizontal-video-card > .video-info {
+	background-color: var(--nav-bg-color);
+	padding: 1rem 2rem;
+	position: relative;
+}
+
+.horizontal-video-card > .video-info > .video-title {
+	font-size: 1.8rem;
+}
+
+.delete-video-icon {
+	position: absolute;
+	bottom: 10%;
+	right: 2.5%;
+}
+
+.delete-video-icon > .fa-trash-can:hover {
+	color: var(--cta-color);
+}
+
+@media screen and (max-width: 768px) {
+	.horizontal-video-card {
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.horizontal-video-card {
+		height: 10rem;
+	}
+
+	.horizontal-video-card > .video-info > .video-title {
+		font-size: 1.5rem;
+	}
+	.horizontal-video-card > .video-info > .video-details > h6 {
+		font-size: 1.4rem;
+	}
+}
