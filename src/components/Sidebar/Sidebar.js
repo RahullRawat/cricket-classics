@@ -18,19 +18,19 @@ export const Sidebar = () => {
 						<span>Playlists</span>
 					</li>
 				</Link>
-				<Link to="#">
+				<Link to="/liked">
 					<li>
 						<i className="fa-solid fa-thumbs-up"></i>
 						<span>Liked Videos</span>
 					</li>
 				</Link>
-				<Link to="#">
+				<Link to="/history">
 					<li>
 						<i className="fa-solid fa-clock-rotate-left"></i>
 						<span>History</span>
 					</li>
 				</Link>
-				<Link to="#">
+				<Link to="/watchlater">
 					<li>
 						<i className="fa-solid fa-clock"></i>
 						<span>Watch Later</span>
