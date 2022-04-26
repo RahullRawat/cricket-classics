@@ -55,6 +55,14 @@
 	display: none;
 }
 
+.profile-container > a > .btn-nav-login {
+	font-size: 1.6rem;
+	font-weight: 600;
+	padding: 0.7rem 1rem;
+	min-width: 8rem;
+	background-color: var(--cta-color);
+}
+
 @media screen and (max-width: 768px) {
 	.mobile-menu {
 		display: block;

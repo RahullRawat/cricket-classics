@@ -1,0 +1,33 @@
+.user-profile-wrapper {
+	background-color: var(--bg-color);
+	height: 100vh;
+}
+.user-profile-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 80vh;
+	width: 35rem;
+	margin: auto;
+}
+
+.profile-details {
+	width: 35rem;
+}
+
+.username-container,
+.user-email-container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	color: var(--light-white-color);
+	border: 1px solid var(--search-border-color);
+	padding: 1rem;
+}
+
+.btn-logout {
+	width: 100%;
+	margin-top: 2rem;
+	background-color: var(--cta-color);
+}
