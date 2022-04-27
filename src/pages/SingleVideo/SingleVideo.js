@@ -27,14 +27,12 @@ export const SingleVideo = () => {
 							className="react-player"
 							url={`https://www.youtube.com/watch?v=${params.id}`}
 							width="100%"
-							height="100%"
 							controls={true}
 						/>
 					</div>
 					<div className="single-video-info-container">
 						<div className="creator-info">
 							<h6>{selectedVideo.title}</h6>
-							{/* <span>90m views</span> */}
 						</div>
 						<div className="video-controls-container">
 							<button>
