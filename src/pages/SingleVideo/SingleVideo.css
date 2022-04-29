@@ -53,3 +53,20 @@ span {
 .video-controls-container > button > .fa-solid {
 	margin-right: 0.5rem;
 }
+
+@media screen and (max-width: 768px) {
+	.single-video-container {
+		width: 100%;
+		left: 0;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.video-player {
+		min-height: 35vh;
+	}
+
+	.react-player > div > iframe {
+		min-height: 35vh;
+	}
+}
