@@ -29,6 +29,10 @@ p {
 	color: var(--white-color);
 }
 
+.no-videos {
+	color: var(--white-color);
+}
+
 @media screen and (max-width: 768px) {
 	.liked-video-container {
 		width: 100%;
