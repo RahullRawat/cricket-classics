@@ -6,3 +6,4 @@ export { WatchLater } from "./WatchLater/WatchLater";
 export { Login } from "./Authentication/Login";
 export { Signup } from "./Authentication/Signup";
 export { User } from "./User/User";
+export { SingleVideo } from "./SingleVideo/SingleVideo";

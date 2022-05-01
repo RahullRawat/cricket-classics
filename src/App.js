@@ -9,6 +9,7 @@ import {
 	Login,
 	Signup,
 	User,
+	SingleVideo,
 } from "./pages/index";
 import { Routes, Route } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
@@ -39,6 +40,7 @@ function App() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
 				<Route path="/user" element={<User />} />
+				<Route path="/:id" element={<SingleVideo />} />
 			</Routes>
 		</div>
 	);
