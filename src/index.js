@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
-import { AuthProvider } from "./context/index";
+import { AuthProvider, LikeProvider } from "./context/index";
 
 // Call make Server
 makeServer();
@@ -13,7 +13,9 @@ ReactDOM.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<AuthProvider>
-				<App />
+				<LikeProvider>
+					<App />
+				</LikeProvider>
 			</AuthProvider>
 		</BrowserRouter>
 	</React.StrictMode>,
