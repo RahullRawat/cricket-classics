@@ -14,6 +14,6 @@ export const deleteFromWatchLater = async (_id, token, watchLaterDispatch) => {
 			throw new Error();
 		}
 	} catch (error) {
-		console.log(error);
+		console.error(error);
 	}
 };
