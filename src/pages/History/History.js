@@ -14,7 +14,8 @@ export const History = () => {
 					<p>1 Video</p>
 				</div>
 				<div className="liked-video-list mt-4">
-					<HorizontalVideoCard />
+					{/* <HorizontalVideoCard /> */}
+					<h2 className="no-videos">No watch history</h2>
 				</div>
 			</div>
 		</div>

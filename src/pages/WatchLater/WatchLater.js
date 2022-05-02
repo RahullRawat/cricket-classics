@@ -14,8 +14,9 @@ export const WatchLater = () => {
 					<p>2 Videos</p>
 				</div>
 				<div className="liked-video-list mt-4">
-					<HorizontalVideoCard />
-					<HorizontalVideoCard />
+					{/* <HorizontalVideoCard /> */}
+					{/* <HorizontalVideoCard /> */}
+					<h2 className="no-videos">Nothing Here</h2>
 				</div>
 			</div>
 		</div>
