@@ -7,6 +7,6 @@ export const getSingleVideo = async (setSinglePageVideo, videoID) => {
 			setSinglePageVideo(response.data.video);
 		}
 	} catch (error) {
-		console.log(error);
+		console.error(error);
 	}
 };
