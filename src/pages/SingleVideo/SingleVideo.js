@@ -5,8 +5,11 @@ import ReactPlayer from "react-player/lazy";
 import { getSingleVideo } from "../../services/getSingleVideo";
 import { addToLike } from "../../services/addToLike";
 import { deleteFromLike } from "../../services/deleteFromLikes";
+import { addToWatchLater } from "../../services/addToWatchLater";
+import { deleteFromWatchLater } from "../../services/deleteFromWatchLater";
 import { useAuth } from "../../context/AuthContext";
 import { useLike } from "../../context/LikeContext";
+import { useWatchLater } from "../../context/WatchLaterContext";
 import "./SingleVideo.css";
 
 export const SingleVideo = () => {
@@ -22,6 +25,11 @@ export const SingleVideo = () => {
 		likeDispatch,
 	} = useLike();
 
+	const {
+		watchLaterState: { watchLater },
+		watchLaterDispatch,
+	} = useWatchLater();
+
 	useEffect(() => {
 		getSingleVideo(setSinglePageVideo, params.id);
 	}, []);
@@ -32,7 +40,27 @@ export const SingleVideo = () => {
 		if (isLiked) {
 			deleteFromLike(_id, token, likeDispatch);
 		} else {
-			addToLike(singlePageVideo, token, likeDispatch);
+			if (token) {
+				addToLike(singlePageVideo, token, likeDispatch);
+			} else {
+				navigate("/login");
+			}
+		}
+	};
+
+	const isWatchLater = watchLater.some(
+		(video) => video._id === singlePageVideo._id
+	);
+
+	const watchLaterHandler = (_id) => {
+		if (isWatchLater) {
+			deleteFromWatchLater(_id, token, watchLaterDispatch);
+		} else {
+			if (token) {
+				addToWatchLater(singlePageVideo, token, watchLaterDispatch);
+			} else {
+				navigate("/login");
+			}
 		}
 	};
 
@@ -58,8 +86,11 @@ export const SingleVideo = () => {
 								<i className="fa-solid fa-thumbs-up"></i>
 								{isLiked ? "Unlike" : "Like"}
 							</button>
-							<button>
-								<i className="fa-solid fa-clock"></i>Watch Later
+							<button onClick={() => watchLaterHandler(singlePageVideo._id)}>
+								<i className="fa-solid fa-clock"></i>
+								{isWatchLater
+									? "Remove From Watch Later"
+									: "Add To Watch Later"}
 							</button>
 							<button>
 								<i className="fa-solid fa-list-check"></i>Playlists
