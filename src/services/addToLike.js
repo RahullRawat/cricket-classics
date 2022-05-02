@@ -7,7 +7,11 @@ export const addToLike = async (video, token, likeDispatch) => {
 			{ video },
 			{ headers: { authorization: token } }
 		);
-		likeDispatch({ type: "ADD_TO_LIKES", payload: response.data.likes });
+		if (response.status === 201) {
+			likeDispatch({ type: "ADD_TO_LIKES", payload: response.data.likes });
+		} else {
+			throw new Error();
+		}
 	} catch (error) {
 		alert(error);
 	}
