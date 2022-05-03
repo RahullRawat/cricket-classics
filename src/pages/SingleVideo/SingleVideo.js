@@ -8,6 +8,7 @@ import { deleteFromLike } from "../../services/deleteFromLikes";
 import { addToWatchLater } from "../../services/addToWatchLater";
 import { deleteFromWatchLater } from "../../services/deleteFromWatchLater";
 import { addToHistory } from "../../services/addToHistory";
+import { deleteFromHistory } from "../../services/deleteFromHistory";
 import { useAuth } from "../../context/AuthContext";
 import { useLike } from "../../context/LikeContext";
 import { useWatchLater } from "../../context/WatchLaterContext";
@@ -71,8 +72,15 @@ export const SingleVideo = () => {
 		}
 	};
 
+	const isHistory = history.some((video) => video._id === singlePageVideo._id);
+
 	const historyHandler = (_id) => {
-		addToHistory(singlePageVideo, token, historyDispatch);
+		if (isHistory) {
+			deleteFromHistory(_id, token, historyDispatch);
+			addToHistory(singlePageVideo, token, historyDispatch);
+		} else {
+			addToHistory(singlePageVideo, token, historyDispatch);
+		}
 	};
 
 	return (
