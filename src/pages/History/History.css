@@ -1,0 +1,6 @@
+.btn-clear {
+	font-size: 1.6rem;
+	font-weight: 600;
+	padding: 1rem;
+	background-color: var(--cta-color);
+}

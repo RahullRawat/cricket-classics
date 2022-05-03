@@ -7,9 +7,11 @@ import { addToLike } from "../../services/addToLike";
 import { deleteFromLike } from "../../services/deleteFromLikes";
 import { addToWatchLater } from "../../services/addToWatchLater";
 import { deleteFromWatchLater } from "../../services/deleteFromWatchLater";
+import { addToHistory } from "../../services/addToHistory";
 import { useAuth } from "../../context/AuthContext";
 import { useLike } from "../../context/LikeContext";
 import { useWatchLater } from "../../context/WatchLaterContext";
+import { useHistory } from "../../context/HistoryContext";
 import "./SingleVideo.css";
 
 export const SingleVideo = () => {
@@ -29,6 +31,11 @@ export const SingleVideo = () => {
 		watchLaterState: { watchLater },
 		watchLaterDispatch,
 	} = useWatchLater();
+
+	const {
+		historyState: { history },
+		historyDispatch,
+	} = useHistory();
 
 	useEffect(() => {
 		getSingleVideo(setSinglePageVideo, params.id);
@@ -64,6 +71,10 @@ export const SingleVideo = () => {
 		}
 	};
 
+	const historyHandler = (_id) => {
+		addToHistory(singlePageVideo, token, historyDispatch);
+	};
+
 	return (
 		<div>
 			<Sidebar />
@@ -75,6 +86,7 @@ export const SingleVideo = () => {
 							url={`https://www.youtube.com/watch?v=${params.id}`}
 							width="100%"
 							controls={true}
+							onStart={() => historyHandler(singlePageVideo._id)}
 						/>
 					</div>
 					<div className="single-video-info-container">
