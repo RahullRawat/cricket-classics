@@ -1,8 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { deleteFromLike } from "../../services/deleteFromLikes";
+import { deleteFromWatchLater } from "../../services/deleteFromWatchLater";
 import { useAuth } from "../../context/AuthContext";
 import { useLike } from "../../context/LikeContext";
+import { useWatchLater } from "../../context/WatchLaterContext";
 import "./HorizontalVideoCard.css";
 
 export const HorizontalVideoCard = ({ video }) => {
@@ -10,6 +12,19 @@ export const HorizontalVideoCard = ({ video }) => {
 		authState: { token },
 	} = useAuth();
 	const { likeDispatch } = useLike();
+
+	const { watchLaterDispatch } = useWatchLater();
+
+	const location = useLocation();
+
+	const deleteHandler = () => {
+		if (location.pathname === "/liked") {
+			deleteFromLike(video._id, token, likeDispatch);
+		}
+		if (location.pathname === "/watchlater") {
+			deleteFromWatchLater(video._id, token, watchLaterDispatch);
+		}
+	};
 	return (
 		<div className="horizontal-video-card">
 			<Link to={`/${video._id}`}>
@@ -23,10 +38,7 @@ export const HorizontalVideoCard = ({ video }) => {
 				<div className="video-details">
 					<h6>{video.channelName}</h6>
 				</div>
-				<div
-					className="delete-video-icon"
-					onClick={() => deleteFromLike(video._id, token, likeDispatch)}
-				>
+				<div className="delete-video-icon" onClick={deleteHandler}>
 					<i class="fa-solid fa-trash-can"></i>
 				</div>
 			</div>
