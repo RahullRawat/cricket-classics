@@ -2,9 +2,11 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { deleteFromLike } from "../../services/deleteFromLikes";
 import { deleteFromWatchLater } from "../../services/deleteFromWatchLater";
+import { deleteFromHistory } from "../../services/deleteFromHistory";
 import { useAuth } from "../../context/AuthContext";
 import { useLike } from "../../context/LikeContext";
 import { useWatchLater } from "../../context/WatchLaterContext";
+import { useHistory } from "../../context/HistoryContext";
 import "./HorizontalVideoCard.css";
 
 export const HorizontalVideoCard = ({ video }) => {
@@ -15,6 +17,8 @@ export const HorizontalVideoCard = ({ video }) => {
 
 	const { watchLaterDispatch } = useWatchLater();
 
+	const { historyDispatch } = useHistory();
+
 	const location = useLocation();
 
 	const deleteHandler = () => {
@@ -23,6 +27,9 @@ export const HorizontalVideoCard = ({ video }) => {
 		}
 		if (location.pathname === "/watchlater") {
 			deleteFromWatchLater(video._id, token, watchLaterDispatch);
+		}
+		if (location.pathname === "/history") {
+			deleteFromHistory(video._id, token, historyDispatch);
 		}
 	};
 	return (
