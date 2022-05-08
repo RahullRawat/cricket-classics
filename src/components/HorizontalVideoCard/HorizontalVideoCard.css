@@ -35,6 +35,17 @@
 	color: var(--cta-color);
 }
 
+@media screen and (max-width: 1024px) {
+	.horizontal-video-card > a > .thumbnail-container {
+		height: 100%;
+		width: 15rem;
+	}
+
+	.horizontal-video-card > .video-info > .video-title {
+		font-size: 1.6rem;
+	}
+}
+
 @media screen and (max-width: 768px) {
 	.horizontal-video-card {
 		width: 100%;
