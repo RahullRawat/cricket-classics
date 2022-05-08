@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { usePlaylists } from "../../context/PlaylistsContext";
 import { createPlaylist } from "../../services/createPlaylist";
@@ -21,9 +22,15 @@ export const PlaylistModal = ({ singlePageVideo, setOpenModal }) => {
 		playlistsDispatch,
 	} = usePlaylists();
 
+	const navigate = useNavigate();
+
 	const createPlaylistHandler = () => {
-		createPlaylist(newPlaylistData, token, playlistsDispatch);
-		setNewPlaylistData({ ...newPlaylistData, title: "" });
+		if (token) {
+			createPlaylist(newPlaylistData, token, playlistsDispatch);
+			setNewPlaylistData({ ...newPlaylistData, title: "" });
+		} else {
+			navigate("/login");
+		}
 	};
 
 	const addVideoToPlaylistHandler = (playlistID) => {
