@@ -1,12 +1,12 @@
 .video-card-container {
 	background-color: var(--nav-bg-color);
-	cursor: pointer;
 	border-radius: 1rem;
 	height: 30rem;
 	width: 35rem;
 }
 
 .thumbnail-container {
+	cursor: pointer;
 	height: 20rem;
 	position: relative;
 }
