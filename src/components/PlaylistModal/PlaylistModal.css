@@ -1,0 +1,69 @@
+.playlist-modal-container {
+	position: absolute;
+	left: 50%;
+	top: 40%;
+	z-index: 10;
+	width: 19rem;
+	color: var(--white-color);
+	background-color: var(--search-border-color);
+	padding: 0.4rem;
+}
+
+.flex {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 2rem;
+	padding: 1rem;
+	border-bottom: 1px solid var(--input-bg-color);
+}
+
+.playlist-modal-container > .flex > h6 {
+	font-size: 1.6rem;
+}
+
+.playlist-modal-container > .playlist-modal-center > label {
+	font-size: 1.6rem;
+	margin-left: 1rem;
+}
+
+.playlist-modal-container > .playlist-modal-center {
+	justify-content: flex-start;
+}
+
+.btn-create-playlist {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.btn-create-playlist > h6 {
+	font-size: 1.6rem;
+	margin-left: 1rem;
+	color: var(--white-color);
+}
+
+.add-playlist {
+	text-align: right;
+}
+
+.add-playlist > input {
+	border: none;
+	border-radius: 0;
+	color: var(--white-color);
+	border-bottom: 1px solid var(--white-color);
+	background: transparent;
+}
+
+.add-playlist > input::placeholder {
+	color: var(--white-color);
+}
+
+.add-playlist > button {
+	background-color: transparent;
+	border: none;
+	color: var(--white-color);
+	font-size: 1.6rem;
+	cursor: pointer;
+	padding: 1rem;
+}
