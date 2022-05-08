@@ -9,6 +9,7 @@ import {
 	LikeProvider,
 	WatchLaterProvider,
 	HistoryProvider,
+	PlaylistsProvider,
 } from "./context/index";
 
 // Call make Server
@@ -18,13 +19,15 @@ ReactDOM.render(
 	<React.StrictMode>
 		<BrowserRouter>
 			<AuthProvider>
-				<HistoryProvider>
-					<LikeProvider>
-						<WatchLaterProvider>
-							<App />
-						</WatchLaterProvider>
-					</LikeProvider>
-				</HistoryProvider>
+				<PlaylistsProvider>
+					<HistoryProvider>
+						<LikeProvider>
+							<WatchLaterProvider>
+								<App />
+							</WatchLaterProvider>
+						</LikeProvider>
+					</HistoryProvider>
+				</PlaylistsProvider>
 			</AuthProvider>
 		</BrowserRouter>
 	</React.StrictMode>,

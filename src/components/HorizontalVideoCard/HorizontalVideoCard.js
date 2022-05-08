@@ -1,12 +1,14 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { deleteFromLike } from "../../services/deleteFromLikes";
 import { deleteFromWatchLater } from "../../services/deleteFromWatchLater";
 import { deleteFromHistory } from "../../services/deleteFromHistory";
+import { deleteVideoFromPlaylist } from "../../services/deleteVideoFromPlaylist";
 import { useAuth } from "../../context/AuthContext";
 import { useLike } from "../../context/LikeContext";
 import { useWatchLater } from "../../context/WatchLaterContext";
 import { useHistory } from "../../context/HistoryContext";
+import { usePlaylists } from "../../context/PlaylistsContext";
 import "./HorizontalVideoCard.css";
 
 export const HorizontalVideoCard = ({ video }) => {
@@ -19,7 +21,10 @@ export const HorizontalVideoCard = ({ video }) => {
 
 	const { historyDispatch } = useHistory();
 
+	const { playlistsDispatch } = usePlaylists();
+
 	const location = useLocation();
+	const { playlistID } = useParams();
 
 	const deleteHandler = () => {
 		if (location.pathname === "/liked") {
@@ -30,6 +35,9 @@ export const HorizontalVideoCard = ({ video }) => {
 		}
 		if (location.pathname === "/history") {
 			deleteFromHistory(video._id, token, historyDispatch);
+		}
+		if (location.pathname === `/playlist/${playlistID}`) {
+			deleteVideoFromPlaylist(token, video._id, playlistID, playlistsDispatch);
 		}
 	};
 	return (

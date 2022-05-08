@@ -1,5 +1,5 @@
 import "./App.css";
-import { Navbar } from "./components/index";
+import { Navbar, SinglePlaylist } from "./components/index";
 import {
 	Home,
 	Playlist,
@@ -34,6 +34,7 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />} />
 				<Route path="/playlist" element={<Playlist />} />
+				<Route path="/playlist/:playlistID" element={<SinglePlaylist />} />
 				<Route path="/liked" element={<LikedVideo />} />
 				<Route path="/history" element={<History />} />
 				<Route path="/watchlater" element={<WatchLater />} />

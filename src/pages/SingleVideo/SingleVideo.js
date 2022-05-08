@@ -13,9 +13,11 @@ import { useAuth } from "../../context/AuthContext";
 import { useLike } from "../../context/LikeContext";
 import { useWatchLater } from "../../context/WatchLaterContext";
 import { useHistory } from "../../context/HistoryContext";
+import { PlaylistModal } from "../../components";
 import "./SingleVideo.css";
 
 export const SingleVideo = () => {
+	const [openModal, setOpenModal] = useState(false);
 	const [singlePageVideo, setSinglePageVideo] = useState({});
 	const params = useParams();
 	const navigate = useNavigate();
@@ -86,6 +88,12 @@ export const SingleVideo = () => {
 	return (
 		<div>
 			<Sidebar />
+			{openModal && (
+				<PlaylistModal
+					singlePageVideo={singlePageVideo}
+					setOpenModal={setOpenModal}
+				/>
+			)}
 			<div className="single-video-container ">
 				<div className="single-video">
 					<div className="video-player">
@@ -112,7 +120,7 @@ export const SingleVideo = () => {
 									? "Remove From Watch Later"
 									: "Add To Watch Later"}
 							</button>
-							<button>
+							<button onClick={() => setOpenModal((prev) => !prev)}>
 								<i className="fa-solid fa-list-check"></i>Playlists
 							</button>
 						</div>

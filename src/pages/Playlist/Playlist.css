@@ -19,9 +19,10 @@
 	position: relative;
 }
 
-.playlist-thumbnail > img {
+.playlist-thumbnail > a > img {
 	width: 100%;
 	border-radius: 1rem;
+	background-color: var(--nav-bg-color);
 }
 
 .playlist-videos {
@@ -34,19 +35,24 @@
 	border-radius: 1rem;
 }
 
-.playlist-videos > .playlist-videos-count {
-	font-size: 2.2rem;
-	color: var(--white-color);
+.playlist-videos > .flex > .playlist-title {
 	position: absolute;
-	top: 20%;
-	left: 52%;
+	top: 60%;
+	left: 5%;
+	font-size: 2.5rem;
+	color: var(--cta-color);
 }
 
-.playlist-videos > .playlist-icon {
+.playlist-videos > .flex > .playlist-icon {
 	position: absolute;
-	top: 50%;
-	left: 50%;
+	top: 60%;
+	right: 5%;
 	font-size: 2.5rem;
+	color: var(--white-color);
+}
+
+.playlist-videos > .flex > .playlist-icon:hover {
+	color: var(--cta-color);
 }
 
 @media screen and (max-width: 1024px) {
