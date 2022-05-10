@@ -16,6 +16,7 @@ export const videos = [
 		videoViews: "4.9M views",
 		likes: "114k",
 		time: "11.49",
+		category: "BBL",
 	},
 
 	{
@@ -30,6 +31,7 @@ export const videos = [
 		videoViews: "918k views",
 		likes: "18k",
 		time: "8.03",
+		category: "CPL T20",
 	},
 	{
 		_id: "KA4n5wej5Qc",
@@ -43,6 +45,7 @@ export const videos = [
 		videoViews: "820k views",
 		likes: "16k",
 		time: "14.46",
+		category: "The Hundred",
 	},
 	{
 		_id: "AFEZzf9_EHk",
@@ -56,6 +59,7 @@ export const videos = [
 		videoViews: "90M views",
 		likes: "716k",
 		time: "6.14",
+		category: "ICC",
 	},
 	{
 		_id: "jJUBYUeJ0l0",
@@ -69,6 +73,7 @@ export const videos = [
 		videoViews: "2M views",
 		likes: "40k",
 		time: "22.00",
+		category: "T10 League",
 	},
 	{
 		_id: "iV1AdFS-Zak",
@@ -82,6 +87,7 @@ export const videos = [
 		videoViews: "1.09M views",
 		likes: "25k",
 		time: "16.05",
+		category: "BBL",
 	},
 	{
 		_id: "BNbNKygcG-A",
@@ -95,6 +101,7 @@ export const videos = [
 		videoViews: "1.3 views",
 		likes: "40k",
 		time: "8.03",
+		category: "CPL T20",
 	},
 	{
 		_id: "SomR0nVmi9w",
@@ -108,6 +115,7 @@ export const videos = [
 		videoViews: "824k views",
 		likes: "17k",
 		time: "14.51",
+		category: "The Hundred",
 	},
 	{
 		_id: "8b0ubLO2MUE",
@@ -121,6 +129,7 @@ export const videos = [
 		videoViews: "63M views",
 		likes: "1.1M",
 		time: "6.44",
+		category: "ICC",
 	},
 	{
 		_id: "EZbIJxVMHDk",
@@ -134,6 +143,7 @@ export const videos = [
 		videoViews: "1.9M views",
 		likes: "28k",
 		time: "22.00",
+		category: "T10 League",
 	},
 	{
 		_id: "JRBhVA6oVdw",
@@ -147,6 +157,7 @@ export const videos = [
 		videoViews: "1.6 views",
 		likes: "40k",
 		time: "8.29",
+		category: "BBL",
 	},
 	{
 		_id: "6oQo8lf5USM",
@@ -160,6 +171,7 @@ export const videos = [
 		videoViews: "1.3M views",
 		likes: "32k",
 		time: "8.03",
+		category: "CPL T20",
 	},
 	{
 		_id: "3RtbHPSr8HU",
@@ -173,6 +185,7 @@ export const videos = [
 		videoViews: "1.2M views",
 		likes: "28k",
 		time: "15.26",
+		category: "The Hundred",
 	},
 	{
 		_id: "fBIqzpkaIy8",
@@ -186,6 +199,7 @@ export const videos = [
 		videoViews: "7M views",
 		likes: "125k",
 		time: "2.16",
+		category: "ICC",
 	},
 	{
 		_id: "zXddZxAkXz4",
@@ -199,6 +213,7 @@ export const videos = [
 		videoViews: "1.7M views",
 		likes: "34k",
 		time: "22.00",
+		category: "T10 League",
 	},
 	{
 		_id: "6xiQcBhEtnw",
@@ -212,6 +227,7 @@ export const videos = [
 		videoViews: "4M views",
 		likes: "77k",
 		time: "7.54",
+		category: "BBL",
 	},
 	{
 		_id: "Qv6eRZ2hQ9E",
@@ -225,6 +241,7 @@ export const videos = [
 		videoViews: "4.1M views",
 		likes: "34k",
 		time: "5.10",
+		category: "CPL T20",
 	},
 	{
 		_id: "gQCNYyDbew0",
@@ -238,6 +255,7 @@ export const videos = [
 		videoViews: "313k views",
 		likes: "5.9k",
 		time: "14.52",
+		category: "The Hundred",
 	},
 	{
 		_id: "Kwu1yIC-ssg",
@@ -251,6 +269,7 @@ export const videos = [
 		videoViews: "44M views",
 		likes: "367k",
 		time: "8.09",
+		category: "ICC",
 	},
 
 	{
@@ -265,5 +284,6 @@ export const videos = [
 		videoViews: "783k views",
 		likes: "14k",
 		time: "21.44",
+		category: "T10 League",
 	},
 ];
