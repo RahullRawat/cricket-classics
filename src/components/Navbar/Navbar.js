@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import "./Navbar.css";
 
-const Navbar = () => {
-	const { authState, signOut } = useAuth();
+const Navbar = ({ searchInput, setSearchInput }) => {
+	const { authState } = useAuth();
+	const [mobileSidebar, setMobileSidebar] = useState(false);
+
+	const showAside = () => {
+		setMobileSidebar(!mobileSidebar);
+	};
+
+	const closeSidebar = () => {
+		setMobileSidebar(!mobileSidebar);
+	};
 	return (
 		<div className="navbar-container">
 			<div className="nav-brand-title">
@@ -14,7 +23,11 @@ const Navbar = () => {
 			</div>
 			<div className="search-bar-container">
 				<i class="fa-solid fa-magnifying-glass"></i>
-				<input type="text" />
+				<input
+					type="text"
+					value={searchInput}
+					onChange={(e) => setSearchInput(e.target.value)}
+				/>
 			</div>
 			{!authState.userData && (
 				<div className="profile-container">
@@ -33,9 +46,60 @@ const Navbar = () => {
 				</div>
 			)}
 
-			<div className="mobile-menu">
-				<i class="fa-solid fa-bars"></i>
-			</div>
+			{!mobileSidebar ? (
+				<i class="fa-solid fa-bars mobile-menu" onClick={showAside}></i>
+			) : (
+				<i class="fa-solid fa-xmark mobile-menu" onClick={showAside}></i>
+			)}
+
+			<aside
+				className={
+					mobileSidebar ? `${"mobile-sidebar show-aside"}` : "mobile-sidebar"
+				}
+			>
+				<ul>
+					<Link to="/">
+						<li onClick={closeSidebar}>
+							<i className="fa-solid fa-house"></i>Home
+						</li>
+					</Link>
+					<Link to="/playlist">
+						<li onClick={closeSidebar}>
+							<i className="fa-solid fa-list-check"></i>Playlist
+						</li>
+					</Link>
+					<Link to="/liked">
+						<li onClick={closeSidebar}>
+							<i className="fa-solid fa-thumbs-up"></i>Liked Videos
+						</li>
+					</Link>
+					<Link to="/history">
+						<li onClick={closeSidebar}>
+							<i className="fa-solid fa-clock-rotate-left"></i>History
+						</li>
+					</Link>
+					<Link to="/watchlater">
+						<li onClick={closeSidebar}>
+							<i className="fa-solid fa-clock"></i>Watch Later
+						</li>
+					</Link>
+					<Link to="/user">
+						<li onClick={closeSidebar}>
+							<i class="fa-solid fa-user"></i>User
+						</li>
+					</Link>
+				</ul>
+				<div className="footer-profile">
+					<img
+						src="https://meta-ui.netlify.app/assets/first-avatar.jpg"
+						class="avatar avatar-sm"
+						alt="profile-avatar"
+					/>
+					<div className="profile details">
+						<span className="sm-text">@{authState.userData.firstName}</span>
+					</div>
+				</div>
+			</aside>
 		</div>
 	);
 };

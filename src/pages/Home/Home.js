@@ -1,27 +1,83 @@
 import React, { useState, useEffect } from "react";
-import { Sidebar, VideoCard } from "../../components";
+import { Sidebar, VideoCard, Navbar } from "../../components";
 import { getVideos } from "../../services/getVideos";
+import { getCategories } from "../../services/getCategories";
 import "./Home.css";
 
 export const Home = () => {
 	const [videos, setVideos] = useState([]);
+	const [categories, setCategories] = useState([]);
+	const [category, setCategory] = useState("");
+	const [searchInput, setSearchInput] = useState("");
 
 	useEffect(() => {
 		getVideos(setVideos);
+		getCategories(setCategories);
 	}, []);
 
+	const searchHandler = (searchInput, videos) => {
+		if (searchInput === "") {
+			return videos;
+		} else {
+			return videos.filter((video) =>
+				video.title.toLowerCase().includes(searchInput.toLowerCase().trim())
+			);
+		}
+	};
+
+	const categoryFilterHandler = (category, videos) => {
+		if (category === "") {
+			return videos;
+		} else {
+			return videos.filter((video) => video.category === category);
+		}
+	};
+
+	let filteredVideos = categoryFilterHandler(category, videos);
+	let searchedVideos = searchHandler(searchInput, filteredVideos);
+
 	return (
-		<div className="home-container">
-			<Sidebar />
-			<div className="video-listing-container">
-				{videos.map((video) => {
-					return (
-						<div key={video._id}>
-							<VideoCard {...video} />
-						</div>
-					);
-				})}
+		<>
+			<Navbar searchInput={searchInput} setSearchInput={setSearchInput} />
+			<div className="home-container">
+				<Sidebar />
+				<div className="video-listing-wrapper">
+					<div className="category-container">
+						<button
+							className="btn-filter-category"
+							name=""
+							onClick={(e) => setCategory(e.target.name)}
+						>
+							All
+						</button>
+						{categories.map((category) => {
+							return (
+								<button
+									key={category._id}
+									className="btn-filter-category"
+									name={category.categoryName}
+									onClick={(e) => setCategory(e.target.name)}
+								>
+									{category.categoryName}
+								</button>
+							);
+						})}
+					</div>
+					<div className="video-listing-container">
+						{searchedVideos.length > 0 ? (
+							searchedVideos.map((video) => {
+								return (
+									<div key={video._id}>
+										<VideoCard {...video} />
+									</div>
+								);
+							})
+						) : (
+							<h2 className="no-videos">No videos related to your search</h2>
+						)}
+					</div>
+				</div>
 			</div>
-		</div>
+		</>
 	);
 };
