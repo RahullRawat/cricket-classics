@@ -49,7 +49,7 @@ const Navbar = ({ searchInput, setSearchInput }) => {
 			{!mobileSidebar ? (
 				<i class="fa-solid fa-bars mobile-menu" onClick={showAside}></i>
 			) : (
-				<i class="fa-solid fa-xmark" onClick={showAside}></i>
+				<i class="fa-solid fa-xmark mobile-menu" onClick={showAside}></i>
 			)}
 
 			<aside
