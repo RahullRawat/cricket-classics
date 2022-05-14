@@ -1,5 +1,5 @@
 import "./App.css";
-import { Navbar, SinglePlaylist } from "./components/index";
+import { Navbar, SinglePlaylist, RequireAuth } from "./components/index";
 import {
 	Home,
 	Playlist,
@@ -33,14 +33,56 @@ function App() {
 			<Navbar />
 			<Routes>
 				<Route path="/" element={<Home />} />
-				<Route path="/playlist" element={<Playlist />} />
-				<Route path="/playlist/:playlistID" element={<SinglePlaylist />} />
-				<Route path="/liked" element={<LikedVideo />} />
-				<Route path="/history" element={<History />} />
-				<Route path="/watchlater" element={<WatchLater />} />
+				<Route
+					path="/playlist"
+					element={
+						<RequireAuth>
+							<Playlist />
+						</RequireAuth>
+					}
+				/>
+				<Route
+					path="/playlist/:playlistID"
+					element={
+						<RequireAuth>
+							<SinglePlaylist />
+						</RequireAuth>
+					}
+				/>
+				<Route
+					path="/liked"
+					element={
+						<RequireAuth>
+							<LikedVideo />
+						</RequireAuth>
+					}
+				/>
+				<Route
+					path="/history"
+					element={
+						<RequireAuth>
+							<History />
+						</RequireAuth>
+					}
+				/>
+				<Route
+					path="/watchlater"
+					element={
+						<RequireAuth>
+							<WatchLater />
+						</RequireAuth>
+					}
+				/>
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
-				<Route path="/user" element={<User />} />
+				<Route
+					path="/user"
+					element={
+						<RequireAuth>
+							<User />
+						</RequireAuth>
+					}
+				/>
 				<Route path="/:id" element={<SingleVideo />} />
 			</Routes>
 		</div>

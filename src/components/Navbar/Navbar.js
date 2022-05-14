@@ -96,7 +96,11 @@ const Navbar = ({ searchInput, setSearchInput }) => {
 						alt="profile-avatar"
 					/>
 					<div className="profile details">
-						<span className="sm-text">@{authState.userData.firstName}</span>
+						{authState.userData ? (
+							<span className="sm-text">@{authState.userData.firstName}</span>
+						) : (
+							<span className="sm-text">@Guest</span>
+						)}
 					</div>
 				</div>
 			</aside>
