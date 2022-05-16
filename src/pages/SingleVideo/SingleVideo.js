@@ -14,6 +14,7 @@ import { useLike } from "../../context/LikeContext";
 import { useWatchLater } from "../../context/WatchLaterContext";
 import { useHistory } from "../../context/HistoryContext";
 import { PlaylistModal } from "../../components";
+import { toast } from "react-toastify";
 import "./SingleVideo.css";
 
 export const SingleVideo = () => {
@@ -49,9 +50,15 @@ export const SingleVideo = () => {
 	const likeVideoHandler = (_id) => {
 		if (isLiked) {
 			deleteFromLike(_id, token, likeDispatch);
+			toast.error(
+				`${singlePageVideo.title.slice(0, 20)}... removed from liked videos`
+			);
 		} else {
 			if (token) {
 				addToLike(singlePageVideo, token, likeDispatch);
+				toast.success(
+					`${singlePageVideo.title.slice(0, 20)}... added to liked videos`
+				);
 			} else {
 				navigate("/login");
 			}
@@ -65,9 +72,15 @@ export const SingleVideo = () => {
 	const watchLaterHandler = (_id) => {
 		if (isWatchLater) {
 			deleteFromWatchLater(_id, token, watchLaterDispatch);
+			toast.error(
+				`${singlePageVideo.title.slice(0, 20)}... removed from watch later`
+			);
 		} else {
 			if (token) {
 				addToWatchLater(singlePageVideo, token, watchLaterDispatch);
+				toast.success(
+					`${singlePageVideo.title.slice(0, 20)}... added to watch later`
+				);
 			} else {
 				navigate("/login");
 			}
