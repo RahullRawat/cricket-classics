@@ -5,3 +5,4 @@ export { HorizontalVideoCard } from "./HorizontalVideoCard/HorizontalVideoCard";
 export { PlaylistModal } from "./PlaylistModal/PlaylistModal";
 export { SinglePlaylist } from "./SinglePlaylist/SinglePlaylist";
 export { RequireAuth } from "./RequireAuth/RequireAuth";
+export { Loader } from "./Loader/Loader";
