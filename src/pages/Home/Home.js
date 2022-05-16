@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Sidebar, VideoCard, Navbar } from "../../components";
+import { Sidebar, VideoCard, Navbar, Loader } from "../../components";
 import { getVideos } from "../../services/getVideos";
 import { getCategories } from "../../services/getCategories";
 import "./Home.css";
@@ -9,9 +9,10 @@ export const Home = () => {
 	const [categories, setCategories] = useState([]);
 	const [category, setCategory] = useState("");
 	const [searchInput, setSearchInput] = useState("");
+	const [loader, setLoader] = useState(false);
 
 	useEffect(() => {
-		getVideos(setVideos);
+		getVideos(setVideos, setLoader);
 		getCategories(setCategories);
 	}, []);
 
@@ -63,12 +64,13 @@ export const Home = () => {
 							);
 						})}
 					</div>
+					{loader && <Loader />}
 					<div className="video-listing-container">
 						{searchedVideos.length > 0 ? (
 							searchedVideos.map((video) => {
 								return (
 									<div key={video._id}>
-										<VideoCard {...video} />
+										<VideoCard video={video} />
 									</div>
 								);
 							})
