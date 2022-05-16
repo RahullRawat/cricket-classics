@@ -4,6 +4,8 @@ import { useAuth } from "../../context/AuthContext";
 import { usePlaylists } from "../../context/PlaylistsContext";
 import { createPlaylist } from "../../services/createPlaylist";
 import { addVideoToPlaylist } from "../../services/addVideoToPlaylist";
+import { deleteVideoFromPlaylist } from "../../services/deleteVideoFromPlaylist";
+import { toast } from "react-toastify";
 import "./PlaylistModal.css";
 
 export const PlaylistModal = ({ singlePageVideo, setOpenModal }) => {
@@ -27,14 +29,44 @@ export const PlaylistModal = ({ singlePageVideo, setOpenModal }) => {
 	const createPlaylistHandler = () => {
 		if (token) {
 			createPlaylist(newPlaylistData, token, playlistsDispatch);
+			toast.success(`Playlist ${newPlaylistData.title} created`);
 			setNewPlaylistData({ ...newPlaylistData, title: "" });
 		} else {
 			navigate("/login");
 		}
 	};
 
-	const addVideoToPlaylistHandler = (playlistID) => {
-		addVideoToPlaylist(singlePageVideo, token, playlistID, playlistsDispatch);
+	const checkVideoExists = (playlistID) => {
+		const isPlaylistExist = playlists.find(
+			(playlist) => playlist._id === playlistID
+		);
+		const checkVideoPresent = isPlaylistExist.videos.some(
+			(video) => video._id === singlePageVideo._id
+		);
+		return checkVideoPresent;
+	};
+
+	const playlistVideoHandler = (playlistID) => {
+		if (checkVideoExists(playlistID)) {
+			deleteVideoFromPlaylist(
+				token,
+				singlePageVideo._id,
+				playlistID,
+				playlistsDispatch
+			);
+			const playlistTitle = playlists.find(
+				(playlist) => playlist._id === playlistID
+			);
+			toast.error(
+				`${singlePageVideo.title} removed from ${playlistTitle.title}`
+			);
+		} else {
+			addVideoToPlaylist(singlePageVideo, token, playlistID, playlistsDispatch);
+			const playlistTitle = playlists.find(
+				(playlist) => playlist._id === playlistID
+			);
+			toast.success(`${singlePageVideo.title} added to ${playlistTitle.title}`);
+		}
 	};
 
 	return (
@@ -51,8 +83,9 @@ export const PlaylistModal = ({ singlePageVideo, setOpenModal }) => {
 					<div className="playlist-modal-center flex" key={playlist._id}>
 						<input
 							type="checkbox"
+							checked={checkVideoExists(playlist._id)}
 							id={playlist.title}
-							onChange={() => addVideoToPlaylistHandler(playlist._id)}
+							onChange={() => playlistVideoHandler(playlist._id)}
 						/>
 						<label htmlFor={playlist.title}>{playlist.title}</label>
 					</div>
