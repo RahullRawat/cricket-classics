@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import "./Navbar.css";
 
-const Navbar = ({ searchInput, setSearchInput }) => {
+const Navbar = ({ searchInput, setSearchInput, optimizedFunc }) => {
 	const { authState } = useAuth();
 	const [mobileSidebar, setMobileSidebar] = useState(false);
 
@@ -23,11 +23,7 @@ const Navbar = ({ searchInput, setSearchInput }) => {
 			</div>
 			<div className="search-bar-container">
 				<i class="fa-solid fa-magnifying-glass"></i>
-				<input
-					type="text"
-					value={searchInput}
-					onChange={(e) => setSearchInput(e.target.value)}
-				/>
+				<input type="text" onChange={(e) => optimizedFunc(e.target.value)} />
 			</div>
 			{!authState.userData && (
 				<div className="profile-container">
