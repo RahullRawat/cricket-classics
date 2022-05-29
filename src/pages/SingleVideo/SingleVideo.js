@@ -45,6 +45,10 @@ export const SingleVideo = () => {
 		getSingleVideo(setSinglePageVideo, params.id);
 	}, []);
 
+	useEffect(() => {
+		document.title = `Cricket Classics | ${singlePageVideo.title}`;
+	}, [singlePageVideo]);
+
 	const isLiked = likes.some((video) => video._id === singlePageVideo._id);
 
 	const likeVideoHandler = (_id) => {
