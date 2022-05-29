@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Sidebar, VideoCard, Navbar, Loader } from "../../components";
 import { getVideos } from "../../services/getVideos";
 import { getCategories } from "../../services/getCategories";
@@ -15,6 +15,10 @@ export const Home = () => {
 		getVideos(setVideos, setLoader);
 		getCategories(setCategories);
 	}, []);
+
+	const searchInputHandler = (value) => {
+		setSearchInput(value);
+	};
 
 	const searchHandler = (searchInput, videos) => {
 		if (searchInput === "") {
@@ -34,12 +38,29 @@ export const Home = () => {
 		}
 	};
 
+	const debounce = (fn) => {
+		let timer;
+		return function () {
+			let context = this;
+			clearTimeout(timer);
+			timer = setTimeout(() => {
+				fn.apply(context, arguments);
+			}, 500);
+		};
+	};
+
+	const optimizedFunc = useCallback(debounce(searchInputHandler), []);
+
 	let filteredVideos = categoryFilterHandler(category, videos);
 	let searchedVideos = searchHandler(searchInput, filteredVideos);
 
 	return (
 		<>
-			<Navbar searchInput={searchInput} setSearchInput={setSearchInput} />
+			<Navbar
+				searchInput={searchInput}
+				setSearchInput={setSearchInput}
+				optimizedFunc={optimizedFunc}
+			/>
 			<div className="home-container">
 				<Sidebar />
 				<div className="video-listing-wrapper">
