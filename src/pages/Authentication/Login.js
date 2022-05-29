@@ -1,21 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
+import { toast } from "react-toastify";
 import "./Authentication.css";
 
 export const Login = () => {
 	const { authState, authDispatch, logIn } = useAuth();
 	const { email, password, error } = authState;
 
+	useEffect(() => {
+		document.title = "Cricket Classics | Login";
+	}, []);
+
 	const logInHandler = (e) => {
 		e.preventDefault();
-		logIn();
+		if (email && password) {
+			logIn();
+		} else {
+			toast.warning("Please fill all details");
+		}
 	};
 
 	const guestLoginHandler = (e) => {
 		e.preventDefault();
-		authDispatch({ type: "LOG_IN_EMAIL", payload: "adarshbalika@gmail.com" });
-		authDispatch({ type: "LOG_IN_PASSWORD", payload: "adarshBalika123" });
+		authDispatch({ type: "LOG_IN_EMAIL", payload: "rahulrawat@gmail.com" });
+		authDispatch({ type: "LOG_IN_PASSWORD", payload: "rahulrawat" });
 	};
 	return (
 		<section className="login-container">
@@ -37,7 +46,6 @@ export const Login = () => {
 						onChange={(e) =>
 							authDispatch({ type: "LOG_IN_EMAIL", payload: e.target.value })
 						}
-						required
 						autoComplete="off"
 					/>
 
@@ -50,12 +58,9 @@ export const Login = () => {
 						onChange={(e) =>
 							authDispatch({ type: "LOG_IN_PASSWORD", payload: e.target.value })
 						}
-						required
 						autoComplete="off"
 					/>
-					<Link to="#" className="forgot-password">
-						Forgot Your Password ?
-					</Link>
+
 					<button
 						type="submit"
 						onClick={logInHandler}

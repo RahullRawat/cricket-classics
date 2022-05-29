@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth } from "../../context/AuthContext";
 import "./User.css";
 
 export const User = () => {
 	const { authState, signOut } = useAuth();
+	useEffect(() => {
+		document.title = "Cricket Classics | User";
+	}, []);
 	return (
 		<div className="user-profile-wrapper">
 			<section className="user-profile-container ">

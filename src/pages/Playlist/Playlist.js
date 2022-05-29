@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Sidebar } from "../../components";
 import { usePlaylists } from "../../context/PlaylistsContext";
@@ -20,6 +20,10 @@ export const Playlist = () => {
 	const deletePlaylistHandler = (playlistId) => {
 		deletePlaylist(token, playlistId, playlistsDispatch);
 	};
+
+	useEffect(() => {
+		document.title = "Cricket Classics | Playlist";
+	}, []);
 	return (
 		<div className="playlist-wrapper">
 			<Sidebar />

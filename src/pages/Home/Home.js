@@ -16,6 +16,10 @@ export const Home = () => {
 		getCategories(setCategories);
 	}, []);
 
+	useEffect(() => {
+		document.title = "Cricket Classics | Home";
+	}, []);
+
 	const searchInputHandler = (value) => {
 		setSearchInput(value);
 	};

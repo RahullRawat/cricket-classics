@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Sidebar, HorizontalVideoCard } from "../../components";
 import watchLaterSvg from "../../assets/watch-later.svg";
 import { useWatchLater } from "../../context/WatchLaterContext";
@@ -8,6 +8,10 @@ export const WatchLater = () => {
 	const {
 		watchLaterState: { watchLater },
 	} = useWatchLater();
+
+	useEffect(() => {
+		document.title = "Cricket Classics | Watch Later";
+	}, []);
 	return (
 		<div className="liked-video-wrapper">
 			<Sidebar />
