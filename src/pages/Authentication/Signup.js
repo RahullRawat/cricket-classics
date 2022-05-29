@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useAuth } from "../../context/AuthContext";
 import "./Authentication.css";
 
@@ -7,9 +8,17 @@ export const Signup = () => {
 	const { authState, authDispatch, signUp } = useAuth();
 	const { firstName, email, password, error } = authState;
 
+	useEffect(() => {
+		document.title = "Cricket Classics | Signup";
+	}, []);
+
 	const signUpHandler = (e) => {
 		e.preventDefault();
-		signUp();
+		if (firstName && email && password) {
+			signUp();
+		} else {
+			toast.warning("Please fill all details");
+		}
 	};
 	return (
 		<section className="login-container">
@@ -31,7 +40,6 @@ export const Signup = () => {
 						onChange={(e) =>
 							authDispatch({ type: "NAME", payload: e.target.value })
 						}
-						required
 						autoComplete="off"
 					/>
 
@@ -45,7 +53,6 @@ export const Signup = () => {
 						onChange={(e) =>
 							authDispatch({ type: "SIGN_UP_EMAIL", payload: e.target.value })
 						}
-						required
 						autoComplete="off"
 					/>
 
@@ -62,16 +69,8 @@ export const Signup = () => {
 								payload: e.target.value,
 							})
 						}
-						required
 						autoComplete="off"
 					/>
-
-					<div className="term-condition">
-						<input id="term-condition" type="checkbox" />
-						<label htmlFor="term-condition">
-							I accept all terms & conditions
-						</label>
-					</div>
 
 					<button type="submit" className="btn btn-login">
 						Signup

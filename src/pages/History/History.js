@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Sidebar, HorizontalVideoCard } from "../../components";
 import historySvg from "../../assets/history.svg";
 import { useHistory } from "../../context/HistoryContext";
@@ -19,6 +19,10 @@ export const History = () => {
 	const deleteAllHistoryHandler = () => {
 		deleteAllFromHistory(token, historyDispatch);
 	};
+
+	useEffect(() => {
+		document.title = "Cricket Classics | History";
+	}, []);
 	return (
 		<div className="liked-video-wrapper">
 			<Sidebar />

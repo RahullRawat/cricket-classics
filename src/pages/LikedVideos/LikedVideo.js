@@ -18,6 +18,10 @@ export const LikedVideo = () => {
 	useEffect(() => {
 		getLike(token, likeDispatch);
 	}, []);
+
+	useEffect(() => {
+		document.title = "Cricket Classics | Liked Videos";
+	}, []);
 	return (
 		<div className="liked-video-wrapper">
 			<Sidebar />
