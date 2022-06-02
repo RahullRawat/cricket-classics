@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import "./Navbar.css";
 
 const Navbar = ({ searchInput, setSearchInput, optimizedFunc }) => {
 	const { authState } = useAuth();
 	const [mobileSidebar, setMobileSidebar] = useState(false);
+	const location = useLocation();
 
 	const showAside = () => {
 		setMobileSidebar(!mobileSidebar);
@@ -21,10 +22,13 @@ const Navbar = ({ searchInput, setSearchInput, optimizedFunc }) => {
 					Cricket <span>Classics</span>
 				</Link>
 			</div>
-			<div className="search-bar-container">
-				<i class="fa-solid fa-magnifying-glass"></i>
-				<input type="text" onChange={(e) => optimizedFunc(e.target.value)} />
-			</div>
+			{location.pathname === "/" && (
+				<div className="search-bar-container">
+					<i class="fa-solid fa-magnifying-glass"></i>
+					<input type="text" onChange={(e) => optimizedFunc(e.target.value)} />
+				</div>
+			)}
+
 			{!authState.userData && (
 				<div className="profile-container">
 					<Link to="/login">
